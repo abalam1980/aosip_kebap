@@ -21,14 +21,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from kebab device
 $(call inherit-product, device/oneplus/kebab/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common stuff.
+$(call inherit-product, vendor/aosip/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_kebab
+$(call inherit-product, vendor/gapps/gapps.mk)
+
+# GoogleCamera
+$(call inherit-product-if-exists, packages/apps/GoogleCamera/config.mk)
+
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+PRODUCT_NAME := aosip_kebab
 PRODUCT_DEVICE := kebab
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
-PRODUCT_MODEL := KB2003
+PRODUCT_MODEL := KB2005
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
